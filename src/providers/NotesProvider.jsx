@@ -33,7 +33,7 @@ const initialValue = [
         text:'qwerty asd ad  smkm kma ldkf s asdasd  ag hdf df qwerty asd ad  smkm kma ldkf s asdasd  ag hdf df qwerty asd ad  smkm kma ldkf s asdasd  ag hdf df ',
     }
 ]
-export const NotesContext = createContext([])
+export const NotesContext = createContext(initialValue)
 
 export const NotesProvider = ({children}) => {
     const [notes, setNotes] = useState(initialValue)

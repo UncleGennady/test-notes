@@ -1,18 +1,23 @@
 import logo from './logo.svg';
 import './App.scss';
-import {NotesProvider} from "./providers/NotesProvider";
+import {useContext} from "react";
+import {CurrentNoteContext} from "./providers/CurrentNoteProvider";
+
 import Layout from "./components/Layout";
 import Sidebar from "./components/ Sidebar";
+import Workspace from "./components/ Workspace";
 
 const App = () => {
-  return (
-    <NotesProvider>
-      <div className="App">
-        <Layout>
-            <Sidebar/>
-        </Layout>
-      </div>
-    </NotesProvider>
+    const {currentNote} = useContext(CurrentNoteContext)
+    return (
+          <div className="App">
+            <Layout>
+                <div className={'wrapper'}>
+                    <Sidebar/>
+                    {!!currentNote && <Workspace/>}
+                </div>
+            </Layout>
+          </div>
   );
 }
 

@@ -1,0 +1,16 @@
+.header{
+  padding: 10px 15px;
+  background-color: #ababab;
+  box-shadow: 0 0 1px 1px black;
+  margin-bottom: 10px;
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.buttons{
+  display: flex;
+  gap: 15px;
+}

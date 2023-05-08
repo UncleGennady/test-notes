@@ -1,0 +1,16 @@
+.button{
+  border: none;
+  margin: 0;
+  padding: 2px 15px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px gray;
+  transition: .3s;
+  &:hover{
+    transform: scale(1.1);
+  }
+
+}

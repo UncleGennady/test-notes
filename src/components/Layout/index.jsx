@@ -2,10 +2,10 @@ import React from 'react';
 import Header from "../Header";
 import Container from "../Container";
 
-const Layout = ({children}) => {
+const Layout = ({children, deleteHandle}) => {
     return (
         <>
-            <Header/>
+            <Header deleteHandle={deleteHandle} />
             <main>
                <Container>
                    {children}

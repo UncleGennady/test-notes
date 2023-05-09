@@ -1,31 +1,25 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import './styles.scss'
-const Workspace = () => {
+import Editor from "../Editor";
+import NoteInfo from "../NoteInfo";
+import {WorkspaceContext} from "../../providers/WorkspaceProvider";
+import {workspaceValues} from "../../model";
+import {CurrentNoteIdContext} from "../../providers/CurrentNoteIdProvider";
+import {CurrentNoteContext} from "../../providers/CurrentNoteProvider";
+const Workspace = ({createHandle, editHandle}) => {
+    const {workspace} = useContext(WorkspaceContext)
+    const {currentNoteId} = useContext(CurrentNoteIdContext)
+    const {currentNote} = useContext(CurrentNoteContext)
+    console.log(workspace)
+
+
 
     return (
-        <div className={'info'}>
-            <p className={'date'}>
-                May 10, 2018 at 12:17 PM
-            </p>
-            <p className={'title'}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, ratione.
-            </p>
-            <p className={'text'}>
-
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, corporis non pariatur praesentium quaerat quidem vitae! Autem deserunt esse molestias, necessitatibus neque quia voluptate voluptatum? Distinctio expedita harum id ipsa laborum nemo odit optio recusandae voluptatem voluptatum! Laudantium, magnam.
-            </p>
-        </div>
+        <>
+            {workspace === workspaceValues.note && !!currentNoteId  && !!currentNote && <NoteInfo/>}
+            {workspace === workspaceValues.edit ? <Editor submitHandle={editHandle}/> : <></>}
+            {workspace === workspaceValues.add ? <Editor submitHandle={createHandle}/> : <></>}
+        </>
     );
 };
 

@@ -3,19 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {NotesProvider} from "./providers/NotesProvider";
-import {CurrentNoteProvider} from "./providers/CurrentNoteProvider";
+import CombinedProvider from "./providers";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <NotesProvider>
-          <CurrentNoteProvider>
-              <App />
-          </CurrentNoteProvider>
-      </NotesProvider>
-
-
+      <CombinedProvider>
+          <App/>
+      </CombinedProvider>
   </React.StrictMode>
 );
 

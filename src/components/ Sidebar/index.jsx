@@ -6,7 +6,7 @@ const Sidebar = () => {
 
     return (
         <aside className={'sidebar'}>
-            <ListItem/>
+            <ListItem handleGetNote/>
         </aside>
 
     );

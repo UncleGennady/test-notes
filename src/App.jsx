@@ -65,17 +65,21 @@ const App = () => {
     },[search])
 
     const deleteHandle = (id) => ()=>{
-        deleteNote(id)
-        setCurrentNoteId(null)
-        setCurrentNote(null)
-        setInputs({...inputsInitialValue})
-        setWorkspace(workspaceValues.note)
-        const newNotes = [...notes].filter(item=> item.id!==id)
-        setNotes(newNotes)
-        if(!!search){
-            const newFilteredNotes = [...filteredNotes  ].filter(item=> item.id!==id)
-            setFilteredNotes(newFilteredNotes)
+        if(window.confirm("Delete entry ?")){
+            deleteNote(id)
+            setCurrentNoteId(null)
+            setCurrentNote(null)
+            setInputs({...inputsInitialValue})
+            setWorkspace(workspaceValues.note)
+            const newNotes = [...notes].filter(item=> item.id!==id)
+            setNotes(newNotes)
+            if(!!search){
+                const newFilteredNotes = [...filteredNotes  ].filter(item=> item.id!==id)
+                setFilteredNotes(newFilteredNotes)
+            }
         }
+        return
+
     }
 
     const createHandle = () =>{
@@ -87,17 +91,21 @@ const App = () => {
     }
 
     const editHandle = () =>{
-        updateNote({...inputs, "status": lockStatus.unlock}, currentNoteId)
-            .then(({record})=>{
-                const newNotes = [...notes];
-                const index = notes.findIndex(({id})=>id===currentNoteId);
-                newNotes[index] = {...record}
-                setNotes([...newNotes])
-            })
-        setInputs({...inputsInitialValue})
-        setCurrentNoteId(null)
-        setCurrentNote(null)
-        setWorkspace(workspaceValues.empty)
+
+        if(window.confirm("Edit entry ?")){
+            updateNote({...inputs, "status": lockStatus.unlock}, currentNoteId)
+                .then(({record})=>{
+                    const newNotes = [...notes];
+                    const index = notes.findIndex(({id})=>id===currentNoteId);
+                    newNotes[index] = {...record}
+                    setNotes([...newNotes])
+                })
+            setInputs({...inputsInitialValue})
+            setCurrentNoteId(null)
+            setCurrentNote(null)
+            setWorkspace(workspaceValues.empty)
+        }
+        return
     }
 
     const lockUnlockHandle = (statusValue) => ()=>{

@@ -1,8 +1,8 @@
 import axios from 'axios'
-import {text, status, title, entity_id} from "../model";
+import {text, status, title, entity_id, API_KEY, baseURL} from "../model";
 
 const api = axios.create({
-    baseURL: 'https://quintadb.com/apps/dcOmknaX1knidcUCoSqCkR/',
+    baseURL: baseURL,
     headers: {
         'Content-Type': 'application/json'
     }
@@ -10,9 +10,9 @@ const api = axios.create({
 
 export const getNotes = async () => {
     try{
-        const response = await api.get(`dtypes/entity/cqWQLuWOrjWQWwW4n4C8kv.json`,{
+        const response = await api.get(`dtypes/entity/cga1BcJSnoayLFWPbuW4zD.json`,{
             params:{
-                "rest_api_key": "dcHSoaeSjok4ydW6hcPSkU",
+                "rest_api_key": API_KEY,
             }
         });
         return response.data;
@@ -27,7 +27,7 @@ export const getNote = async (id) => {
     try {
         const response = await api.get(`dtypes/${id}.json`, {
             params: {
-                "rest_api_key": "dcHSoaeSjok4ydW6hcPSkU",
+                "rest_api_key": API_KEY,
             }
         });
         return response.data;
@@ -41,7 +41,7 @@ export const deleteNote = async (id) => {
     try{
         const response = await api.delete(`dtypes/${id}.json`,{
             params:{
-                "rest_api_key": "dcHSoaeSjok4ydW6hcPSkU",
+                "rest_api_key": API_KEY,
             }
         });
         return response.data;
@@ -57,7 +57,7 @@ export const createNote = async (values) => {
             "values":{"entity_id" : entity_id, [title] :values.title, [text]:values.text, [status]:values.status}
         },{
             params:{
-                "rest_api_key": "dcHSoaeSjok4ydW6hcPSkU",
+                "rest_api_key": API_KEY,
             }
         });
         return response.data;
@@ -73,7 +73,7 @@ export const updateNote = async (values, id) => {
             "values":{[title] :values.title, [text]:values.text, [status]:values.status}
         },{
             params:{
-                "rest_api_key": "dcHSoaeSjok4ydW6hcPSkU",
+                "rest_api_key": API_KEY,
             }
         });
         return response.data;

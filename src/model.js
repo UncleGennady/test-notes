@@ -1,7 +1,10 @@
-export const title = 'ddJ2aBimnea4oFW7FdNmkt'
-export const text = 'cBW7JdS8jfvkdcJ8oWW41w'
-export const status = 'dcKXyKWRjcGOk4WOjGd8ki'
-export const entity_id = 'cqWQLuWOrjWQWwW4n4C8kv'
+export const title = "dcKXpcMdPdWRlcMqFdIq8N"
+export const text = "dcRCkHWPPcTOkxo0vMWOL4"
+export const status = "dcR0JdT8nfWO0FFGFdMSkK"
+export const entity_id = "cga1BcJSnoayLFWPbuW4zD"
+export const API_KEY = "bTjcH4W7jbw7tdOmont3Tn"
+export const baseURL = 'https://quintadb.com/apps/apWOvFWQDcRzb0pahcG8kE/'
+
 export const workspaceValues = {
     add: 'add',
     edit: 'edit',

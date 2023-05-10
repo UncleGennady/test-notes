@@ -1,5 +1,7 @@
-export const title = 'ddL8kDDbTdHiJcHwqsW5a9'
-export const text = 'ddQSoRgsrdLzaYWPddPKnn'
+export const title = 'ddJ2aBimnea4oFW7FdNmkt'
+export const text = 'cBW7JdS8jfvkdcJ8oWW41w'
+export const status = 'dcKXyKWRjcGOk4WOjGd8ki'
+export const entity_id = 'cqWQLuWOrjWQWwW4n4C8kv'
 export const workspaceValues = {
     add: 'add',
     edit: 'edit',
@@ -9,4 +11,9 @@ export const workspaceValues = {
 export const inputsInitialValue = {
     title:'',
     text:'',
+}
+
+export const lockStatus = {
+    lock: 'lock',
+    unlock: 'unlock'
 }

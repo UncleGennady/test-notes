@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import './styles.scss'
 import Editor from "../Editor";
 import NoteInfo from "../NoteInfo";
@@ -10,8 +10,6 @@ const Workspace = ({createHandle, editHandle}) => {
     const {workspace} = useContext(WorkspaceContext)
     const {currentNoteId} = useContext(CurrentNoteIdContext)
     const {currentNote} = useContext(CurrentNoteContext)
-    console.log(workspace)
-
 
 
     return (

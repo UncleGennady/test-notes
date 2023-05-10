@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react'
+import {SearchContext} from "../../providers/SearchProvider";
 import'./styles.scss'
 
 const SearchBox = () => {
-    const [state, setState] = useState('')
+    const {search, setSearch} = useContext(SearchContext)
     return (
         <div>
-            <input onChange={({target})=>setState(() => (target.value))} className={`input ${!!state ? 'input_placeholder_none' : ''}`} type="text" placeholder={"Search"}/>
+            <input onChange={({target})=>setSearch(() => (target.value))} className={`input ${!!search ? 'input_placeholder_none' : ''}`} type="text" placeholder={"Search"} value={search}/>
         </div>
     );
 };

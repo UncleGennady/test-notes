@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {text, title} from "../../model";
 import {CurrentNoteContext} from "../../providers/CurrentNoteProvider";
 import './styles.scss'
+import {getDate} from "../../utils";
 
 
 const NoteInfo = () => {
@@ -10,7 +11,7 @@ const NoteInfo = () => {
     return (
         <div className={'info'}>
             <p className={'date'}>
-                {currentNote.created_at}
+                {getDate(currentNote.created_at)}
             </p>
             <p className={'title'}>
                 {currentNote.values[title]}

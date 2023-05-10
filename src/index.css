@@ -29,3 +29,7 @@ textarea{
   border: none;
   resize: none;
 }
+h3{
+  margin: 0;
+  padding: 0;
+}

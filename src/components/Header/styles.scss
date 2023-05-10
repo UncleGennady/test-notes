@@ -13,4 +13,21 @@
 .buttons{
   display: flex;
   gap: 15px;
+  &_menu{
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+  }
+}
+
+@media(max-width: 600px){
+  .header{
+    padding:10px;
+  }
+}
+
+@media(max-width: 500px){
+  .buttons{
+    display: none;
+  }
 }

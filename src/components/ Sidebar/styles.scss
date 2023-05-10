@@ -3,3 +3,14 @@
   max-height:90vh;
   overflow-y: scroll;
 }
+
+@media(max-width: 600px){
+  .sidebar{
+    width: 40%;
+  }
+}
+@media(max-width: 400px){
+  .sidebar{
+    width: 45%;
+  }
+}

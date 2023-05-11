@@ -58,7 +58,8 @@ const App = () => {
 
     useEffect( ()=>{
         if(!!(search.trim()) && !!notes.length){
-            const newNotes = searchNotes(searchNotes(structuredClone(notes),title,search),text,search)
+            const  newNotes = searchNotes(structuredClone(notes), [title, text], search)
+
             setFilteredNotes([...newNotes]);
         }
 

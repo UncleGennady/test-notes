@@ -54,6 +54,14 @@ const ListItem = () => {
 
     }
 
+    if(!filteredNotes.length){
+        return (
+            <div>
+                There are no enries for this query
+            </div>
+        )
+    }
+
     return (
         <ul className={'list'}>
             {filteredNotes.map(note=>(<li key={note.id} className={`item_wrapper ${note.values[status] === lockStatus.lock ? 'lock' : ''} ${currentNoteId === note.id ? 'item_active' : ''}`} onClick={handleClick(note.id)}>

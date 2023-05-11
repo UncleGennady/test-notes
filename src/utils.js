@@ -1,28 +1,33 @@
-export const searchNotes = (notes, filterField, word) => {
-    return notes.map((note) => {
-        const stringArr = note.values[filterField].split(' ');
-        const hasMatch = stringArr.some((item) => item.toLowerCase() === word.toLowerCase());
+export const searchNotes = (posts, searchFields, searchQuery) => {
+    const lowercaseQuery = searchQuery.toLowerCase();
 
-        if (hasMatch) {
-            const highlightedArr = stringArr.map((item) => {
-                if (item.toLowerCase() === word.toLowerCase()) {
-                    return `<mark>${item}</mark>`;
-                } else {
-                    return item;
-                }
+    return posts.reduce((filteredPosts, post) => {
+        const matchesSearchQuery = searchFields.some((field) => {
+            const fieldValue = post.values[field];
+            const lowercaseFieldValue = fieldValue.toLowerCase();
+            return lowercaseFieldValue.includes(lowercaseQuery);
+        });
+
+        if (matchesSearchQuery) {
+            const updatedPost = { ...post };
+
+            searchFields.forEach((field) => {
+                const fieldValue = post.values[field];
+                updatedPost.values[field] = highlightMatches(fieldValue, lowercaseQuery);
             });
 
-            return {
-                ...note,
-                values: {
-                    ...note.values,
-                    [filterField]: highlightedArr.join(' ')
-                }
-            };
+            filteredPosts.push(updatedPost);
+        } else if (searchQuery === '') {
+            filteredPosts.push(post);
         }
 
-        return note;
-    });
+        return filteredPosts;
+    }, []);
+};
+
+const highlightMatches = (text, query) => {
+    const regex = new RegExp(query, 'gi');
+    return text.replace(regex, (match) => `<mark>${match}</mark>`);
 };
 
 const getDateClosing = () => {
